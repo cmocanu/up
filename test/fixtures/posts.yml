@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  title: MyString
+  link: MyString
+  author: 1
+  karma: 1
+
+two:
+  title: MyString
+  link: MyString
+  author: 1
+  karma: 1

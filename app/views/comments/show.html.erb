@@ -1,0 +1,6 @@
+<%= render partial: "shared/comment", collection: Array.new.push(@comment) %>
+
+<%= form_for :reply, url: reply_comment_path do |f| %>
+	<%= f.text_area :content, rows: 10 %>
+	<%= f.submit "Post" %>
+<% end %>

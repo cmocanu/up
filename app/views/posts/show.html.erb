@@ -1,0 +1,7 @@
+<span class="post"> <%= @post[:title] %> </span>
+<br>
+<span class="meta"> <%= @post.likes.size %> points by <%= @post.user.name %> - <%= @post.comments.count %> comments</span>
+<br><br><br>
+
+<%= render partial: "shared/comment_form" %>
+<%= render partial: 'shared/comment', collection: @comments %>

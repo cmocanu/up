@@ -1,0 +1,26 @@
+
+<% if current_user && !current_user.voted_for?(comment) %>
+	<span class="move-left">
+		<%= link_to "▲", upvote_comment_path(id: comment.id), method: :post %>
+		<span class="meta"> 
+			<%= comment.user.name %> <%= time_ago_in_words(comment.created_at) %> ago; karma:
+			<%= comment.karma %>
+		</span>
+	</span>
+
+<% else %>
+	<span class="meta"> 
+		<%= comment.user.name %> <%= time_ago_in_words(comment.created_at) %> ago; karma:
+		<%= comment.likes.size %>
+	</span>
+<% end %>
+<br>
+<%= (h comment['content']).gsub("\n", '<br>').html_safe %>
+<br><br>
+<%= link_to "reply", Comment.find(comment.id) %>
+<br><br>
+<% if comment.children.any? %>
+	<span class="move-right">
+		<%= render partial: "shared/comment", collection: comment.children %>
+	</span>
+<% end %>

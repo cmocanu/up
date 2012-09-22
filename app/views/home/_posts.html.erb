@@ -1,0 +1,21 @@
+<% @posts.each do |p| %>
+	<% @current_post = p %>
+	<% if current_user && !current_user.voted_for?(p) %>
+		<span class="move-left">
+			<%= link_to "▲", upvote_posts_path(id: p.id), method: :post %>
+			<span class="post">
+				<%= link_to p[:title], p[:link], protocol: :http %>
+			</span>
+		</span>	
+	<% else %>
+		<span class="post">
+				<%= link_to p[:title], p[:link], protocol: :http %>
+		</span>
+	<% end %>
+	<br>
+	<span class="meta">
+		<%= p.likes.size %> points by <%= p.user.name %> 
+		<%= link_to (p.comments.count.to_s + " comments"), p %>
+	</span>
+	<br> <br><br>
+<% end %>
