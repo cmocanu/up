@@ -26,7 +26,7 @@ end
 
 group :developement do
 	gem 'faker', '0.3.1'
-	gem 'sqlite3'
+	# gem 'sqlite3'
 end
 
 group :production do
